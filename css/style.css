@@ -1,17 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Spartan", sans-serif;
-}
+/* Start General Styles */
 
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+*, ::after, ::before {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 0px;
+  margin : 0px;
+}
+:root {
+  --section-padding : 20px 80px;
+}
 html {
   scroll-behavior: smooth;
 }
-
-/* Global Styles */
-
 h1 {
   font-size: 50px;
   line-height: 64px;
@@ -50,4 +52,23 @@ p {
 
 body {
   width: 100%;
+  font-family: "Spartan", sans-serif;
+
 }
+/* End General Styles */
+
+
+
+/* $$ Start Main Style $$ */
+
+/* - Start Header Style - */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--section-padding);
+  align-items: center;
+  background: #e3e6f3;
+}
+/* - End Header Style - */
+
+/* $$ End Main Style $$ */
