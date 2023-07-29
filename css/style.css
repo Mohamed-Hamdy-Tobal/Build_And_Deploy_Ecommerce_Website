@@ -10,6 +10,10 @@
 }
 :root {
   --section-padding : 20px 80px;
+  --font-color: #1a1a1a;
+  --anchor-color: #088178;
+  --main-trans: 0.3s;
+  --section-color: #e3e6f3;
 }
 html {
   scroll-behavior: smooth;
@@ -55,6 +59,16 @@ body {
   font-family: "Spartan", sans-serif;
 
 }
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+input:focus,
+textarea:focus  {
+  outline: none;
+}
 /* End General Styles */
 
 
@@ -67,7 +81,40 @@ header {
   justify-content: space-between;
   padding: var(--section-padding);
   align-items: center;
-  background: #e3e6f3;
+  background: var(--section-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+}
+header .navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .navbar li{
+  padding: 0 20px;
+}
+header .navbar li a{
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--font-color);
+  transition: var(--main-trans);
+  -webkit-transition: var(--main-trans);
+  -moz-transition: var(--main-trans);
+  -ms-transition: var(--main-trans);
+  -o-transition: var(--main-trans) ease;
+  position: relative;
+}
+header .navbar li a:hover,
+header .navbar li a.active {
+  color: #088178;
+}
+header .navbar li a.active::after {
+  content: "";
+  position: absolute;
+  width: 75%;
+  height: 2px;
+  background-color: var(--anchor-color);
+  bottom: -3px;
+  left: 0;
 }
 /* - End Header Style - */
 
