@@ -11,6 +11,29 @@ ulElements.forEach((e) => {
         e.classList.add("active")
     }
 })
+
+// If Onclick On The Bar Menu
+let bar = document.getElementById("bar")
+let nav = document.querySelector(".navbar")
+let closed = document.getElementById("x-mark")
+
+if (bar) {
+    bar.addEventListener("click", function() {
+        nav.classList.add('active')
+        bar.classList.add("active")
+        nav.classList.remove('close')
+    })
+}
+if (closed) {
+    closed.addEventListener("click", function() {
+        nav.classList.add('close')
+        nav.classList.remove('active')
+        bar.classList.remove("active")
+
+    })
+}
+
+
 // --- End For Header ---
 
 // $$$ End Script $$$
