@@ -778,7 +778,7 @@ footer .copyright {
   }
   #features {
     gap: 30px;
-    justify-content: space-between;
+    justify-content: center;
     padding: 40px 20px;
   }
   #features .fe-box {
