@@ -906,6 +906,106 @@ select:focus {
 }
 /* $$ End About $$ */
 
+/* -- ---------------------------------------------------------------------------------------------------------------- --  */
+
+/* $$ Start Contact $$ */
+#contact-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#contact-details .details{
+  flex-basis: 40%;
+}
+#contact-details .details span{
+  text-transform: uppercase;
+  font-size: 12px;
+}
+#contact-details .details h2,
+#contact form h2{
+  font-size: 26px;
+  line-height: 35px;
+  padding: 20px 0;
+}
+#contact-details .details h3{
+  font-size: 16px;
+  padding-bottom: 15px;
+}
+#contact-details .details li{
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+#contact-details .details li i{
+  font-size: 14px;
+  padding-right: 22px;
+}
+#contact-details .details li p{
+  margin: 0;
+  font-size: 14px;
+}
+#contact-details .map {
+  flex-basis: 55%;
+  height: 400px;
+}
+#contact-details .map iframe{
+  width: 100%;
+  height: 100%;
+}
+#contact {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 30px;
+  padding: 80px;
+  border: 1px solid #e1e1e1;
+}
+#contact form {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 65%;
+  align-items: flex-start;
+}
+#contact form span {
+  font-size: 12px;
+}
+#contact form input,
+#contact form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  outline: none;
+  margin-bottom: 20px;
+  border: 1px solid #e1e1e1;
+  caret-color: var(--main-color);
+}
+#contact form button {
+  background-color: var(--main-color);
+  color: #fff;
+}
+#contact .people div {
+  padding-bottom: 25px;
+  display: flex;
+  align-items: flex-start;
+}
+#contact .people div img{
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+#contact .people div p{
+  margin: 0;
+  font-size: 13px;
+  line-height: 25px;
+}
+#contact .people div p span{
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
+/* $$ End Contact $$ */
+
 
 /* - Start Media Query - */
 @media (max-width: 799px) {
@@ -1021,6 +1121,14 @@ select:focus {
   footer {
     gap: 20px;
   }
+
+  /* Contact */
+  #contact {
+    padding: 30px;
+  }
+  #contact form{
+    flex-basis: 50%;
+  }
 }
 
 
@@ -1101,7 +1209,7 @@ select:focus {
     flex-basis: 100%;
   }
 
-  /* Blog */
+  /* Blog Page*/
   #blog {
     padding: 100px 20px 0 20px;
   }
@@ -1117,7 +1225,7 @@ select:focus {
   #blog .blog-box:not(:last-child) {
     padding-bottom: 120px;
   }
-  /* About */
+  /* About Page*/
   #about-head {
     flex-direction: column;
   }
@@ -1131,6 +1239,25 @@ select:focus {
   }
   #about-app .video {
     width: 100%
+  }
+
+  /* Contact Page */
+  #contact-details {
+    flex-direction: column;
+    gap: 25px;
+  }
+  #contact-details .details,
+  #contact-details .map{
+    flex-basis: 100%;
+  }
+  #contact {
+    margin: 10px;
+    padding: 30px 10px;
+    flex-wrap: wrap;
+  }
+  #contact form{
+    flex-basis: 100%;
+    margin-bottom: 30px;
   }
 }
 
