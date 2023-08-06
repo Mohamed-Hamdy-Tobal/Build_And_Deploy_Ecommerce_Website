@@ -32,3 +32,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+let mainPro = document.getElementById("mainImg");
+let smallPro = document.getElementsByClassName("small-img");
+
+let prod = Array.from(document.querySelectorAll("#feature-products #pro-container .pro"))
+for (let i =0; i<prod.length; i++) {
+    prod[i].onclick = function () {
+        myItem = prod[i].firstElementChild.src
+        localStorage.setItem("updatedContent", myItem);
+        window.location.href = 'sproduct.html'
+    }
+}
+
+
+
+
