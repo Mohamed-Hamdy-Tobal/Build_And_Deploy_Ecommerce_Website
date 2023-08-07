@@ -36,15 +36,21 @@ document.addEventListener("DOMContentLoaded", function () {
 let mainPro = document.getElementById("mainImg");
 let smallPro = document.getElementsByClassName("small-img");
 
-let prod = Array.from(document.querySelectorAll("#feature-products #pro-container .pro"))
-for (let i =0; i<prod.length; i++) {
-    prod[i].onclick = function () {
-        myItem = prod[i].firstElementChild.src
-        localStorage.setItem("updatedContent", myItem);
-        window.location.href = 'sproduct.html'
-    }
+let prod = Array.from(document.querySelectorAll("#feature-products #pro-container .pro"));
+
+for (let i = 0; i < prod.length; i++) {
+    prod[i].onclick = function(event) {
+        // Check if the click was not on the cart icon
+        if (!event.target.classList.contains('cart')) {
+            myItem = prod[i].firstElementChild.src;
+            localStorage.setItem("updatedContent", myItem);
+            window.location.href = 'sproduct.html';
+        }
+    };
+    
+    let cartIcon = prod[i].querySelector('.cart');
+    cartIcon.onclick = function(event) {
+        event.stopPropagation(); // Prevent the click from bubbling to the parent .pro element
+        cartIcon.classList.toggle("clicked");
+    };
 }
-
-
-
-
