@@ -1,4 +1,4 @@
-// update.js
+// update.js File
 document.addEventListener("DOMContentLoaded", function() {
     let mainPro = document.getElementById("mainImg");
     const updatedContent = localStorage.getItem("updatedContent");

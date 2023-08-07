@@ -1229,7 +1229,7 @@ select:focus {
     display: flex;
     flex-basis: 70%;
   }
-  /* footer */
+  /* main footer */
   footer {
     gap: 20px;
   }
