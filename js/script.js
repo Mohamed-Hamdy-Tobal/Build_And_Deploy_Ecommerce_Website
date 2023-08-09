@@ -65,6 +65,7 @@ for (let i = 0; i < prod.length; i++) {
         localStorage.setItem("active", "clicked")
         let click = localStorage.getItem("active")
         cartIcon.classList.add(click);
+        cartIcon.classList.add("test")
 
         myCount.className = "active"
         if (cartIcon.classList.contains("clicked")) {
@@ -95,60 +96,6 @@ for (let i = 0; i < prod.length; i++) {
         
         // Store the updated cart items back in localStorage
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
-
-        // let myTr = document.createElement("tr")
-        // let myAnc = document.createElement("a")
-        // let xIc = document.createElement("i")
-
-        // myAnc.setAttribute("href", "#")
-        // xIc.setAttribute("class", "fa-regular fa-circle-xmark")
-        
-        // let myTdX = document.createElement("td")
-        // myTdX.appendChild(myAnc)
-        // myTdX.appendChild(xIc)
-
-        // let myTdImg = document.createElement("td")
-        // let imgTd = document.createElement("img")
-        // imgTd.setAttribute("src", localStorage.getItem("myImg"))
-        // myTdImg.appendChild(imgTd)
-
-        // let myTdPrice = document.createElement("td")
-        // let priceTd = document.createTextNode(localStorage.getItem("myPrice"))
-        // myTdPrice.appendChild(priceTd)
-        // console.log(myTdPrice)
-
-
-        // myTr.appendChild(myTdX)
-        // myTr.appendChild(myTdImg)
-        // myTr.appendChild(myTdPrice)
-        // localStorage.setItem("TR", myTr)
-        // console.log(myTr)
-
-        // myTable.appendChild(myTr)
-
     }
     cartIcon.addEventListener("click", countFunc)
 }
-
-
-
-// function countFunc(event) {
-//     event.stopPropagation(); // Prevent the click from bubbling to the parent .pro element
-//     cartIcon.classList.toggle("clicked");
-//     myCount.className = "active"
-//     if (cartIcon.classList.contains("clicked")) {
-//         localStorage.setItem("bagNums", count)
-//         count+= 1
-//     } else {
-//         count-= 1
-//         localStorage.setItem("bagNums", count)
-//         myCount.innerHTML = count
-//         if (count == 0) {
-//             myCount.classList.remove("active")
-//         }
-//     }
-//     const updatePrice = localStorage.getItem("bagNums");
-//     myCount.innerHTML = updatePrice
-// }
-// let prodButton = document.querySelector("#prodetails .single-pro-details button")
-// prodButton.addEventListener("click", countFunc)

@@ -3,13 +3,29 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Retrieve cart items from localStorage
     const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+    function updateCartTotal() {
+    let totalPrice = 0;
+
+    TR.forEach(item => {
+        if (!item.classList.contains("hid")) {
+            let itemTotal = parseFloat(item.querySelector(".subtot").textContent);
+            totalPrice += itemTotal;
+        }
+    });
+
+    for (let i = 0; i < pagePrice.length; i++) {
+        pagePrice[i].textContent = totalPrice.toFixed(2);
+    }
+
+    localStorage.setItem("tablePrice", totalPrice);
+    }
+
+    let pagePrice = document.querySelectorAll("#cart-add #subtotal table td.total")
     
     // Populate the cart table with cart items
     cartItems.forEach(item => {
         // Retrieve cart items from localStorage
-        console.log(item.nameImg)
-        console.log(item.price)
-
         const row = myTable.insertRow();
             
         // Create cells
@@ -24,15 +40,51 @@ document.addEventListener("DOMContentLoaded", function() {
         removeCell.innerHTML = '<a href="#"><i class="fa-regular fa-circle-xmark"></i></a>';
         imageCell.innerHTML = '<img src="' + item.nameImg + '" alt="">';
         productCell.textContent = "Carton Astronaut T-Shirts";
-        priceCell.textContent = item.price;
+        priceCell.textContent = item.price; 
         quantityCell.innerHTML = '<input type="number" value="1">';
+        quantityCell.className = "input"
         
         subtotalCell.textContent = item.price;
+        subtotalCell.className = "subtot"
 
-        quantityCell.querySelector("input").oninput = function () {
-            subtotalCell.textContent = (parseFloat(item.price) * quantityCell.querySelector("input").value).toFixed(2);
-        }
+        let quantityInput = quantityCell.querySelector("input");
+        quantityInput.addEventListener("input", function () {
+            let newQuantity = parseInt(quantityInput.value);
+            let newSubtotal = parseFloat(item.price) * newQuantity;
+            subtotalCell.textContent = newSubtotal.toFixed(2);
 
-        console.log(quantityCell.querySelector("input").value)
+            updateCartTotal();
+
+            let items = JSON.parse(localStorage.getItem('cartItems'));
+            items[i].quantity = newQuantity;
+            localStorage.setItem('cartItems', JSON.stringify(items));
+        });
     });
+
+    let TR = Array.from(document.querySelectorAll("#cart table tbody tr"));
+
+    let totalPrice = 0
+    TR.forEach((item, i) => {
+        item.querySelector("a").onclick = function() {
+            item.className = "hid"
+            let items = JSON.parse(localStorage.getItem('cartItems'))
+            items = items.slice(0, i).concat(items.slice(i+1))
+            localStorage.setItem('cartItems', JSON.stringify(items));
+            myCount.innerHTML -= 1
+            localStorage.setItem("bagNums", myCount.innerHTML)
+            if (myCount.innerHTML == 0) {
+                myCount.classList.remove("active")
+            }
+        }
+    let itemTotal = parseFloat(item.querySelector(".subtot").innerHTML)
+
+    totalPrice += itemTotal
+
+    localStorage.setItem("tablePrice", totalPrice)
+
+    for (i=0; i<pagePrice.length; i++) {
+        pagePrice[i].textContent = totalPrice
+    }
+    })
+    updateCartTotal();
 });
