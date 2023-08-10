@@ -1194,6 +1194,9 @@ select:focus {
   header .navbar #lg-bag {
     display: none;
   }
+  header .navbar li:last-of-type a span {
+    display: none !important;
+  }
   header .mobile {
     display: flex;
     flex-direction: row-reverse;

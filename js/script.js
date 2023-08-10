@@ -61,7 +61,7 @@ for (let i = 0; i < prod.length; i++) {
     // For Count Of Bag
     let cartIcon = prod[i].querySelector('.cart');
     function countFunc(event) {
-        event.stopPropagation(); // Prevent the click from bubbling to the parent .pro element
+        event.preventDefault(); // Prevent the click from bubbling to the parent .pro element
         localStorage.setItem("active", "clicked")
         let click = localStorage.getItem("active")
         cartIcon.classList.add(click);

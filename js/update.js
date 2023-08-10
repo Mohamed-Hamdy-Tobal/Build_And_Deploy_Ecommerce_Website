@@ -1,4 +1,4 @@
-// update.js File
+// update.js File For Product
 document.addEventListener("DOMContentLoaded", function() {
     let mainPro = document.getElementById("mainImg");
     let price = document.querySelector("#prodetails .single-pro-details h2")

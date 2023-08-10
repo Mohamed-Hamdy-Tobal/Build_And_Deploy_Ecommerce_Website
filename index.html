@@ -451,6 +451,13 @@
 
         <script src="js/script.js"></script>
         <script src="js/bagLoad.js"></script>
+
+        <script>
+            window.addEventListener("beforeunload", function() {
+                // Clear local storage when the window is about to be closed
+                localStorage.clear();
+            });            
+        </script>
     </body>
 
 </html>

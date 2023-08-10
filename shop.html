@@ -376,30 +376,7 @@
         <script src="js/script.js"></script>
         <script src="js/bagLoad.js"></script>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                let bagToggle = document.querySelector("#feature-products #pro-container .pro .cart");
-                let isActive = JSON.parse(localStorage.getItem('bagActive')) || false;
-            
-                if (isActive) {
-                    bagToggle.classList.add("clicked");
-                }
-            
-                bagToggle.addEventListener("click", function(event) {
-                    event.preventDefault();
-                    isActive = !isActive;
-                    
-                    if (isActive) {
-                        bagToggle.classList.add("clicked");
-                    } else {
-                        bagToggle.classList.remove("clicked");
-                    }
-            
-                    localStorage.setItem('bagActive', isActive);
-                });
-            });
-            
-        </script>
+
 
     </body>
 

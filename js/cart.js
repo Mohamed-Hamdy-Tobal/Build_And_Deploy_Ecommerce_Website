@@ -49,14 +49,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
         let quantityInput = quantityCell.querySelector("input");
         quantityInput.addEventListener("input", function () {
+
             let newQuantity = parseInt(quantityInput.value);
             let newSubtotal = parseFloat(item.price) * newQuantity;
             subtotalCell.textContent = newSubtotal.toFixed(2);
 
+            // Ensure the new quantity is not less than 0
+            if (newQuantity < 0) {
+                newQuantity = 0;
+                subtotalCell.textContent = parseFloat(0)
+                quantityInput.value = newQuantity;
+            }
+
             updateCartTotal();
 
             let items = JSON.parse(localStorage.getItem('cartItems'));
-            items[i].quantity = newQuantity;
+            items.quantity = newQuantity;
             localStorage.setItem('cartItems', JSON.stringify(items));
         });
     });
@@ -75,7 +83,14 @@ document.addEventListener("DOMContentLoaded", function() {
             if (myCount.innerHTML == 0) {
                 myCount.classList.remove("active")
             }
+
+            totalPrice -= parseInt(item.querySelector("td:last-of-type").innerHTML)
+            localStorage.setItem("tablePrice", totalPrice)
+            for (i=0; i<pagePrice.length; i++) {
+                pagePrice[i].textContent = totalPrice
+            }
         }
+
     let itemTotal = parseFloat(item.querySelector(".subtot").innerHTML)
 
     totalPrice += itemTotal
