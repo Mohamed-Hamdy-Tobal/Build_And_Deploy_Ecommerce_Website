@@ -73,7 +73,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let totalPrice = 0
     TR.forEach((item, i) => {
-        item.querySelector("a").onclick = function() {
+        item.querySelector("a").onclick = function(event) {
+            event.preventDefault()
             item.className = "hid"
             let items = JSON.parse(localStorage.getItem('cartItems'))
             items = items.slice(0, i).concat(items.slice(i+1))
