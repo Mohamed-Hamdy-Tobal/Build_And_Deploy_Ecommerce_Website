@@ -1,6 +1,5 @@
 # Fashion Cube - E-commerce App
 
-![Fashion Cube Logo](path/to/logo.png)
 
 ## About
 
